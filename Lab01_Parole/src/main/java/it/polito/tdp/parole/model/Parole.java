@@ -38,6 +38,11 @@ public class Parole{
 		mappa.clear();
 		lista.clear();
 	}
+	
+	public void togliParola(String s)
+	{
+		mappa.remove(s);
+	}
 
 	
 	

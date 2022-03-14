@@ -28,6 +28,10 @@ public class FXMLController {
     private TextArea txtResult;
     @FXML
     private Button btnReset;
+    @FXML
+    private Button btnCancella;
+    @FXML
+    private TextArea txtTime;
     
     @FXML
     void doInsert(ActionEvent event) {
@@ -39,6 +43,31 @@ public class FXMLController {
     	
     	this.elenco.addParola(parola);
    
+    	this.stampaLista();
+    	
+    	txtTime.appendText("Aggiunta *" + parola + "*: " + System.nanoTime() + "\n");
+    }
+
+    @FXML
+    void doReset(ActionEvent event) {
+    	// TODO
+    	this.elenco.reset();
+    	this.txtResult.clear();
+    	this.txtParola.clear();
+    }
+    
+    @FXML
+    void doCancella(ActionEvent event) {
+    	
+    	String daTogliere = this.txtResult.getSelectedText();
+    	
+    	elenco.togliParola(daTogliere);
+    	
+    	this.stampaLista();
+    }
+    
+    void stampaLista()
+    {
     	List<String> lista = elenco.getElenco();
     	
     	String ret = "";
@@ -56,14 +85,6 @@ public class FXMLController {
     	this.txtResult.clear();
     	this.txtParola.clear();
     	this.txtResult.setText(ret);
-    }
-
-    @FXML
-    void doReset(ActionEvent event) {
-    	// TODO
-    	this.elenco.reset();
-    	this.txtResult.clear();
-    	this.txtParola.clear();
     }
 
     @FXML
