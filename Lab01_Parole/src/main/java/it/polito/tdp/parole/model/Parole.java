@@ -23,6 +23,8 @@ public class Parole{
 	
 	public List<String> getElenco() {
 		//TODO
+		lista.clear();
+		
 		for(String s: mappa.values())
 		{
 			lista.add(s);
@@ -36,6 +38,10 @@ public class Parole{
 		mappa.clear();
 		lista.clear();
 	}
+
+	
+	
+	
 
 	
 	
